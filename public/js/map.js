@@ -200,7 +200,8 @@ function createMap(divName, options) {
         projection : "EPSG:900913"
     });
     map.addLayer(markers);
-    map.addControl(new OpenLayers.Control.Marker());
+    // Kas gi cia? Debugeris sako, kad nera tokio konstruktoriaus --AK
+    //map.addControl(new OpenLayers.Control.Marker());
     return map;
 };
 

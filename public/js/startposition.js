@@ -1,4 +1,5 @@
 function Startposition(map){
+    var setByIpRequestID;
     this.geolocationError = function(g) {
         if ((g.code >= 0) && (g.code <= 3)) {
             this.setPositionByIp();
@@ -7,6 +8,7 @@ function Startposition(map){
     };
     
     this.setGeolocatedPosition = function(i) {
+	window.clearTimeout(setByIpRequestID); // got address, no need to ask
     	if(this.changed()){
     		return false;
     	}
@@ -49,6 +51,15 @@ function Startposition(map){
     this.map = map;
     this.center = this.map.getCenter();
     this.zoom = this.map.getZoom();
+    var t = this;
+
+    // FF do not call failure callback if user refuses to provide Geo Location.
+    // Therefore we prepare call for setLocationByIP after some time
+    setByIpRequestID = window.setTimeout(
+	function(){
+	    t.setPositionByIp();
+	}, 5000 /* 5 secs */);
+
     if ((navigator.geolocation) && (typeof navigator.geolocation.getCurrentPosition != "undefined")) {
         var a = this;
         navigator.geolocation.getCurrentPosition(function(g){a.setGeolocatedPosition(g);}, function(g){a.geolocationError(g);});
