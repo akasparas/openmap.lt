@@ -32,8 +32,7 @@ function Startposition(map){
                     i = i.split("|");
                     var l = new OpenLayers.LonLat(i[5], i[4]);
                     l = l.transform(epsg4326, g.map.getProjectionObject());
-                    g.map.panTo(l);
-                    g.map.zoomTo(10);
+		    g.map.setCenter(l, 10);
                     return true;
                 } else {
                     return false;
