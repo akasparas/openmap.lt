@@ -71,7 +71,7 @@ div.olControlSaveFeaturesItemInactive{background-image:url(img/save_features_off
 .olControlLayerSwitcher .layersDiv .baseLbl, .olControlLayerSwitcher .layersDiv .dataLbl{margin-top:3px;margin-left:3px;margin-bottom:3px;}
 .olControlLayerSwitcher .layersDiv .baseLayersDiv, .olControlLayerSwitcher .layersDiv .dataLayersDiv{padding-left:10px;}
 .olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv{top:5px;right:0px;}
-// loading panel
+/* loading panel */
 .olControlLoadingPanel {
     background-image: url(/js/OpenLayers/theme/default/img/loading.gif);
     position: relative;
